@@ -1,98 +1,207 @@
+/* 🌙 General Dark Theme */
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-  background: gray;
-  font-family: 'Raleway', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* 📌 Header */
+header {
+    width: 100%;
+    background: #1e1e1e;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
 }
 
-.center button {
-  padding: 10px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #222;
-  background: #f5f5f5;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-radius: 5px;
+header h1 {
+    font-size: 22px;
 }
 
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.header-buttons button:hover {
+    background: #444;
+}
+
+/* 📌 Main Content */
+main {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+/* 🎭 Popup Styling */
 .popup {
-  position: absolute;
-  top: -150%;
-  left: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1.25);
-  width: 380px;
-  padding: 20px 30px;
-  background: #fff;
-  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 400px;
+    transition: all 0.2s ease-in-out;
 }
 
 .popup.active {
-  top: 50%;
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
-    transform 20ms ease-in-out 0ms;
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.popup .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  height: 15px;
-  background: #888;
-  color: #eee;
-  text-align: center;
-  line-height: 15px;
-  border-radius: 15px;
-  cursor: pointer;
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
 }
 
-.popup .form h2 {
-  text-align: center;
-  color: #222;
+.form-element {
+    margin: 15px 0;
 }
 
-.popup .form .form-element {
-  margin: 15px 0px;
-  text-align: center;
-  color: #222;
-}
-.popup .form .form-element label {
-  text-align: center;
-  color: #222;
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
-.popup .form .form-element input[type='text'] {
-  text-align: center;
-  color: #222;
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #222;
+    color: white;
 }
 
-.popup .form .form-element button {
-  width: 100%;
-  height: 40px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  background: #222;
-  color: #f5f5f5;
-  border-radius: 10px;
-  cursor: pointer;
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #444;
+}
+
+/* 📌 Saved Media List */
+#media-list {
+    margin-top: 20px;
+    padding: 15px;
+    background: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+#saved-media {
+    list-style: none;
+    padding: 0;
+}
+
+#saved-media li {
+    background: #222;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#saved-media button {
+    background: red;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+#saved-media button:hover {
+    background: darkred;
+}
+
+/* 🎬 "What's on Tonight?" Section */
+#whats-on-tonight {
+    margin-top: 20px;
+    padding: 15px;
+    background: #1e1e1e;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+#tonight-list {
+    list-style: none;
+    padding: 0;
+}
+
+#tonight-list li {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Hide database popup by default */
+#database-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 400px;
+    transition: all 0.2s ease-in-out;
+}
+
+#database-popup.active {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
 }
