@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's on Tonight?</title>
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="./output.css"></link>
+  </head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center">
+
+
+
+    <header
+      class="w-full bg-gray-900 p-4 flex justify-between items-center border-b border-gray-700"
+    >
+      <h1 class="text-3xl font-bold text-white">What's On Tonight?</h1>
+      <div class="flex gap-4">
+        <button
+          id="show-database"
+          class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded"
+        >
+          Manage Media
+        </button>
+        <button
+          id="show-popup"
+          class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Add Media
+        </button>
+        <button
+          id="clear-storage"
+          class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded"
+        >
+          Clear Data
+        </button>
+      </div>
+    </header>
+
+    <main id="content" class="opacity-0 translate-y-4 transition-all duration-800 ease-in-out w-full max-w-4xl mx-auto mt-6 px-6">
+  <!-- List of Tonight's Media -->
+  <ul id="tonight-list" class="space-y-4 pl-4">
+    <!-- List items will be dynamically added here -->
+  </ul>
+
+      <!-- Media Database (Initially Hidden) -->
+      <div
+        id="database-popup"
+        class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300"
+      >
+        <div
+          class="bg-gray-900 p-6 rounded-lg w-11/12 md:w-96 shadow-lg scale-95 transform transition-transform duration-300"
+        >
+          <div
+            class="flex justify-between items-center border-b border-gray-700 pb-2"
+          >
+            <h2 class="text-lg font-semibold text-white">Media Database</h2>
+            <button id="close-database" class="text-white text-2xl">
+              &times;
+            </button>
+          </div>
+          <ul id="saved-media" class="mt-4 space-y-3">
+            <!-- Media items will be added here dynamically -->
+          </ul>
+        </div>
+      </div>
+
+ <!-- Database Popup (Manage Media) -->
+<div id="database-popup" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 ease-in-out">
+  <!-- Ensure this div has 'popup-content' so it animates correctly -->
+  <div class="popup-content bg-gray-900 p-6 rounded-lg w-96 shadow-lg transform scale-75 transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+      <h2 class="text-lg font-semibold text-white">Media Database</h2>
+      <button id="close-database" class="text-white text-2xl">&times;</button>
+    </div>
+    <ul id="saved-media" class="mt-4 space-y-3"></ul>
+  </div>
+</div>
+
+<!-- Add Media Popup -->
+<div id="add-popup" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 ease-in-out">
+  <div class="popup-content bg-gray-900 p-6 rounded-lg w-96 shadow-lg transform scale-75 transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+      <h2 class="text-lg font-semibold text-white">Media Entry Form</h2>
+      <button id="close-popup" class="text-white text-2xl">&times;</button>
+    </div>
+    <form id="media-form">
+      <!-- Media Name Input -->
+      <div class="mt-4">
+        <label for="name" class="text-white block mb-1">Name</label>
+        <input type="text" id="name" class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500" required />
+      </div>
+
+      <!-- Release Day Dropdown -->
+      <div class="mt-4">
+        <label for="day" class="text-white block mb-1">Release Day</label>
+        <select id="day" class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+
+      <!-- Media Type Dropdown -->
+      <div class="mt-4">
+        <label for="media-type" class="text-white block mb-1">Media Type</label>
+        <div class="relative">
+          <select id="media-type" class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+            <option value="Show">Show</option>
+            <option value="Anime">Anime</option>
+            <option value="Comic">Comic</option>
+            <option value="Manga">Manga</option>
+            <option value="Manhwa">Manhwa</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-4">
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-lg transition">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
